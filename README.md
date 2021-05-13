@@ -1,5 +1,11 @@
-# Proyecto Water Container Solution
+# Challenge Water Container Solution
 
+Technologies:
+- NetCore 3.1
+- Unit Test (Using NUnit)
+- Moq
+
+The solution is using Interceptors for get general error (Exceptions) in the application.
 
 Services
 ```cmd
