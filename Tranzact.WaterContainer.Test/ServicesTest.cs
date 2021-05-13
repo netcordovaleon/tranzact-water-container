@@ -24,28 +24,22 @@ namespace Tranzact.WaterContainer.Test
         }
 
         [Test]
-        public void get_lenght_in_array_without_values() {
-            var request = new int[] {};
-            var expected = 0;
-            var result = waterContainerServices.Object.getLength(request);
+        [TestCase(0, new int[] { })]
+        [TestCase(2, new int[] { 1, 1 })]
+        [TestCase(5, new int[] { 7, 9, 8, 5, 2 })]
+
+        public void get_lenght_in_array_without_values(int expected, int[] arg) {
+            var result = waterContainerServices.Object.getLength(arg);
             Assert.AreEqual(expected, result);
         }
 
         [Test]
-        public void get_lenght_in_array_with_values() {
-            var request = new int[] { 1, 2, 3, 6 };
-            var expected = 4;
-            var result = waterContainerServices.Object.getLength(request);
-            Assert.AreEqual(expected, result);
-        }
-
-        [Test]
-        public void get_base_by_height()
+        [TestCase(200, 10, 20)]
+        [TestCase(50, 10, 5)]
+        [TestCase(6, 3, 2)]
+        public void get_base_by_height(int expected, int baser, int height)
         {
-            var baseRequest = 10;
-            var heightRequest = 20;
-            var expected = 200;
-            var result = waterContainerServices.Object.calculateArea(baseRequest, heightRequest);
+            var result = waterContainerServices.Object.calculateArea(baser, height);
             Assert.AreEqual(expected, result);
         }
 
